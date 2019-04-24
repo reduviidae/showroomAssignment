@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
+// const path = require('path');
+const db = require('./models');
 
 const app = express()
 
@@ -34,14 +35,17 @@ app.get('/api/v1/shows', (req, res) => {
 })
 
 app.get('/api/v1/shows/genre/:id', (req, res) => {
+  const genre_id = parseInt(req.params.id);
   // RETRIEVE ALL SHOWS OF A GIVEN GENRE
 });
 
 app.get('/api/v1/shows/user/:id', (req, res) => {
+  const user_id = parseInt(req.params.id);
   // RETRIEVE ALL SHOWS FOR A GIVEN USER
 });
 
 app.get('/api/v1/show/:id', (req, res) => {
+  const id = parseInt(req.params.id);
   // RETRIEVE ONE SHOW
 });
 
@@ -51,10 +55,12 @@ app.post('/api/v1/show', (req, res) => {
 
 // Comments Routes //
 app.get('/api/v1/show/comments/:id', (req, res) => {
+  const show_id = parseInt(req.params.id)
   // RETRIEVE ALL COMMENTS FOR A GIVEN SHOW
 });
 
-app.post('/api/v1/comment', (req, res) => {
+app.post('/api/v1/show/comment/:id', (req, res) => {
+  const show_id = parseInt(req.params.id)
   // CREATE NEW COMMENT
 });
 
