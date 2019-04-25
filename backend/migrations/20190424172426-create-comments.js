@@ -11,6 +11,12 @@ module.exports = {
       comment_body: {
         type: Sequelize.STRING
       },
+      user_id: {
+        type: Sequelize.INTEGER
+      },
+      show_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

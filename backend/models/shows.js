@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true
       },
       title: DataTypes.STRING,
-      img_url: DataTypes.STRING
+      img_url: DataTypes.STRING,
+      user_id: DataTypes.INTEGER,
+      genre_id: DataTypes.INTEGER
     },
     {}
   );
