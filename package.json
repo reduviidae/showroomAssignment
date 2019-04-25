@@ -1,0 +1,11 @@
+{
+  "name": "showroomAssignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:reduviidae/showroomAssignment.git",
+  "author": "Wiljago Cook",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
