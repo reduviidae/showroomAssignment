@@ -66,13 +66,24 @@ app.get('/api/v1/shows', (req, res) => {
 
 app.get('/api/v1/genre/:id/shows', (req, res) => {
   const genre_id = parseInt(req.params.id);
-
-
+  return db.Genres.findByPk(genre_id)
+    .then(genre => genre.getShows())
+    .then(shows => res.send(shows))
+    .catch(err => {
+      console.log(`Error retrieving shows for genre #${genre_id}`);
+      return res.send(err);
+    });
 });
 
-app.get('/api/v1/shows/user/:id', (req, res) => {
+app.get('/api/v1/user/:id/shows', (req, res) => {
   const user_id = parseInt(req.params.id);
-  // RETRIEVE ALL SHOWS FOR A GIVEN USER
+  return db.Users.findByPk(user_id)
+    .then(user => user.getShows())
+    .then(shows => res.send(shows))
+    .catch(err => {
+      console.log(`Error retrieving shows for user #${user_id}`);
+      return res.send(err);
+    });
 });
 
 app.get('/api/v1/show/:id', (req, res) => {

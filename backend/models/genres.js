@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Genres.associate = function(models) {
-    Genres.hasMany(models.Shows, {foreignKey: 'genre_id'})
+    Genres.hasMany(models.Shows, {as: 'Shows', foreignKey: 'genre_id'})
   };
   return Genres;
 };
