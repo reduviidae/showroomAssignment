@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Genres.associate = function(models) {
-    Genres.hasMany(models.shows)
+    // Genres.hasMany(models.shows)
   };
   return Genres;
 };

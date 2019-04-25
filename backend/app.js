@@ -12,7 +12,12 @@ app.get('/', (req, res) => res.send('HELLO WORLD'));
 
 // Users Routes //
 app.get('/api/v1/users', (req, res) => {
-  // RETRIEVE ALL USERS
+  return db.Users.findAll()
+    .then(users => res.send(users))
+    .catch(err => {
+      console.log(`Error retrieving users: ${JSON.stringify(err)}`);
+      return res.send(err)
+    })
 });
 
 app.get('/api/v1/user/:id', (req, res) => {
