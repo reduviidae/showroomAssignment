@@ -70,7 +70,7 @@ app.get('/api/v1/genre/:id/shows', (req, res) => {
     .then(genre => genre.getShows())
     .then(shows => res.send(shows))
     .catch(err => {
-      console.log(`Error retrieving shows for genre #${genre_id}`);
+      console.log(`Error retrieving shows for genre #${genre_id}: ${JSON.stringify(err)}`);
       return res.send(err);
     });
 });
@@ -81,14 +81,19 @@ app.get('/api/v1/user/:id/shows', (req, res) => {
     .then(user => user.getShows())
     .then(shows => res.send(shows))
     .catch(err => {
-      console.log(`Error retrieving shows for user #${user_id}`);
+      console.log(`Error retrieving shows for user #${user_id}: ${JSON.stringify(err)}`);
       return res.send(err);
     });
 });
 
 app.get('/api/v1/show/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  // RETRIEVE ONE SHOW
+  return db.Shows.findByPk(id)
+    .then(show => res.send(show))
+    .catch(err => {
+      console.log(`Error retrieving show #${id}: ${JSON.stringify(err)}`);
+      return res.send(err)
+    })
 });
 
 app.post('/api/v1/show', (req, res) => {
@@ -96,12 +101,29 @@ app.post('/api/v1/show', (req, res) => {
 });
 
 // Comments Routes //
-app.get('/api/v1/show/comments/:id', (req, res) => {
+app.get('/api/v1/show/:id/comments', (req, res) => {
   const show_id = parseInt(req.params.id);
-  // RETRIEVE ALL COMMENTS FOR A GIVEN SHOW
+  return db.Shows.findByPk(show_id)
+    .then(show => show.getComments())
+    .then(comments => res.send(comments))
+    .catch(err => {
+      console.log(`Error retrieving comments for show #${show_id}: ${JSON.stringify(err)}`);
+      return res.send(err);
+    })
 });
 
-app.post('/api/v1/show/comment/:id', (req, res) => {
+app.get('/api/v1/user/:id/comments', (req, res) => {
+  const user_id = parseInt(req.params.id);
+  return db.Users.findByPk(user_id)
+    .then(user => user.getComments())
+    .then(comments => res.send(comments))
+    .catch(err => {
+      console.log(`Error retrieving comments for user #${user_id}: ${JSON.stringify(err)}`);
+      return res.send(err);
+    })
+});
+
+app.post('/api/v1/show/:id/comment', (req, res) => {
   const show_id = parseInt(req.params.id);
   // CREATE NEW COMMENT
 });

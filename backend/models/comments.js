@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       comment_body: DataTypes.STRING,
       user_id: DataTypes.INTEGER,
-      genre_id: DataTypes.INTEGER
+      show_id: DataTypes.INTEGER
     },
     {}
   );
