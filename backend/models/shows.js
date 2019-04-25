@@ -1,4 +1,5 @@
 "use strict";
+
 module.exports = (sequelize, DataTypes) => {
   const Shows = sequelize.define(
     "Shows",
@@ -17,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Shows.associate = function(models) {
     // Shows.belongsTo(models.users);
-    // Shows.belongsTo(models.genres);
+    Shows.belongsTo(models.Genres, {as: 'Genre', foreignKey: 'genre_id'});
     // Shows.hasMany(models.comments);
   };
   return Shows;
