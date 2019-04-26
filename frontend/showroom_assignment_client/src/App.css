@@ -86,6 +86,10 @@ li {
   margin: 5%;
 }
 
+.showGenre {
+  clear: left;
+}
+
 /* Users Page CSS */
 
 .userList {

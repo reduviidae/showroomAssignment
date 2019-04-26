@@ -88,7 +88,12 @@ app.get('/api/v1/genre/:id/shows', (req, res) => {
 app.get('/api/v1/user/:id/shows', (req, res) => {
   const user_id = parseInt(req.params.id);
   return db.Users.findByPk(user_id)
-    .then(user => user.getShows())
+    .then(user => user.getShows({
+      include: [{
+        model: db.Genres,
+        as: 'Genre'
+      }]
+    }))
     .then(shows => res.send(shows))
     .catch(err => {
       console.log(`Error retrieving shows for user #${user_id}: ${JSON.stringify(err)}`);

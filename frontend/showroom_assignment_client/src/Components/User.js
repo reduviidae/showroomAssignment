@@ -26,6 +26,7 @@ class User extends Component {
   };
 
   render() {
+    console.log(this.state.shows);
     const shows = this.state.shows.map(show => {
       return (
         <div className="userShow">
@@ -33,6 +34,7 @@ class User extends Component {
             <img width="100%" src={show.img_url} alt="show poster" />
           </div>
           <h2 className="showTitle">{show.title}</h2>
+          <h2 className="showGenre">{show.Genre.genre_name}</h2>
         </div>
       );
     });
