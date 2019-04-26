@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   box-sizing: border-box;
+  color: #979797;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* NavBar CSS */
@@ -16,7 +20,6 @@ body {
   align-content: center;
   align-items: center;
 }
-
 
 .navItem {
   display: flex;
@@ -49,7 +52,6 @@ li {
   grid-column-start: 2;
   grid-row-start: 2;
   background-color: #d8d8d8;
-  color: #979797;
   height: 8em;
   width: 40em;
   text-align: center;
@@ -64,7 +66,32 @@ li {
 /* User Page CSS */
 
 .imgBox {
-  height: 196px;
-  width: 235px;
+  height: 235px;
+  width: 196px;
   background-color: #d8d8d8;
+}
+
+.userContainer {
+  margin: 0% 5% 5% 5%;
+  padding: 5%;
+}
+
+.userShow {
+  display: flex;
+  margin: 5%;
+}
+
+.showTitle {
+  margin: 5%;
+}
+
+/* Users Page CSS */
+
+.userList {
+  font-weight: bold;
+}
+
+.userList:before {
+  content: "-";
+  text-indent: 5px;
 }

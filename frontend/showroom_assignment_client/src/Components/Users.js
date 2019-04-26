@@ -1,34 +1,39 @@
-import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
-import { API_ROOT, HEADERS } from '../constants';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
 
+// Import constants
+import { API_ROOT, HEADERS } from "../constants";
 
 class Users extends Component {
-  state ={
+  state = {
     users: []
-  }
-  componentDidMount () {
-    this.fetchUsers()
   };
+  componentDidMount() {
+    this.fetchUsers();
+  }
 
   fetchUsers = () => {
     fetch(`${API_ROOT}users`, {
-      method: 'GET',
+      method: "GET",
       headers: HEADERS
     })
       .then(r => r.json())
       .then(users => this.setState({ users }))
       .catch(err => {
         console.log(`Error retrieving users: ${JSON.stringify(err)}`);
-      })
-  }
+      });
+  };
 
-  render () {
-    const userList = this.state.users.map(user => <li>{user.username}</li>)
+  render() {
+    const userList = this.state.users.map(user => (
+      <ListGroup.Item className="userList">{user.username}</ListGroup.Item>
+    ));
     return (
-      <div>
-        <h2>{this.props.user.username}</h2>
-        {userList}
+      <div className="userContainer">
+        <h3>Welcome to, {this.props.user.username}!</h3>
+        <h3>Master List of All Users:</h3>
+        <ListGroup>{userList}</ListGroup>
       </div>
     );
   }

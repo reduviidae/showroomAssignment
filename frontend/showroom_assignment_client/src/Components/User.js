@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+
+// Import constants
 import { API_ROOT, HEADERS, USERID } from "../constants";
 
 class User extends Component {
@@ -29,12 +32,12 @@ class User extends Component {
           <div className="imgBox">
             <img width="100%" src={show.img_url} alt="show poster" />
           </div>
-          <h2>{show.title}</h2>
+          <h2 className="showTitle">{show.title}</h2>
         </div>
       );
     });
     return (
-      <div>
+      <div className="userContainer">
         {this.props.user.username}
         {shows}
       </div>
