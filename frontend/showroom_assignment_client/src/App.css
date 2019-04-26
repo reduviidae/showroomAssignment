@@ -10,7 +10,7 @@ body {
 
 .navBar {
   background-color: #d8d8d8;
-  border: 1px black solid;
+  border: 1px #979797 solid;
   margin: 10px;
   padding: 10px;
   height: 3em;
@@ -55,7 +55,7 @@ li {
   height: 8em;
   width: 40em;
   text-align: center;
-  border: 1px black solid;
+  border: 1px #979797 solid;
   border-radius: 10px;
   display: flex;
   align-content: center;
@@ -69,6 +69,7 @@ li {
   height: 235px;
   width: 196px;
   background-color: #d8d8d8;
+  border: 1px #979797 solid;
 }
 
 .userContainer {

@@ -56,7 +56,12 @@ app.get('/api/v1/genre/:id', (req, res) => {
 
 // Shows Routes //
 app.get('/api/v1/shows', (req, res) => {
-  return db.Shows.findAll()
+  return db.Shows.findAll({
+    include: [{
+      model: db.Genres,
+      as: 'Genre'
+    }]
+  })
     .then(shows => res.send(shows))
     .catch(err => {
       console.log(`Error retrieving shows: ${JSON.stringify(err)}`);
@@ -67,7 +72,12 @@ app.get('/api/v1/shows', (req, res) => {
 app.get('/api/v1/genre/:id/shows', (req, res) => {
   const genre_id = parseInt(req.params.id);
   return db.Genres.findByPk(genre_id)
-    .then(genre => genre.getShows())
+    .then(genre => genre.getShows({
+      include: [{
+        model: db.Genres,
+        as: 'Genre'
+      }]
+    }))
     .then(shows => res.send(shows))
     .catch(err => {
       console.log(`Error retrieving shows for genre #${genre_id}: ${JSON.stringify(err)}`);
