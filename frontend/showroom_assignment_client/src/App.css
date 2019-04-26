@@ -8,18 +8,20 @@
   font-size: 1.5em;
 }
 
-li {
-  display: inline-block;
-}
-
-
 .navItem {
   float: right;
   text-align: justify;
-  list-style: none;
+}
+
+.navItem > li {
+  display: inline-block;
 }
 
 a {
   color: #979797;
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
