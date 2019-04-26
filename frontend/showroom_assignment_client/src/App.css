@@ -60,3 +60,11 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+/* User Page CSS */
+
+.imgBox {
+  height: 196px;
+  width: 235px;
+  background-color: #d8d8d8;
+}

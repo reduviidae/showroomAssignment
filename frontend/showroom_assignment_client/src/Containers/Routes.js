@@ -53,7 +53,7 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/users" component={Users} />
+        <PropsRoute path="/users" component={Users} user={this.state.user}/>
         <PropsRoute path="/user/:id" component={User} user={this.state.user}/>
         <Route path="/user/post" component={PostShow} />
         <Route path="/shows" component={Shows} />

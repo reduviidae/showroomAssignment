@@ -6,8 +6,8 @@ class User extends Component {
     shows: []
   };
 
-  componentDidMount () {
-    this.fetchShows()
+  componentDidMount() {
+    this.fetchShows();
   }
 
   fetchShows = () => {
@@ -23,7 +23,16 @@ class User extends Component {
   };
 
   render() {
-    const shows = this.state.shows.map(show => <li>{show.title}</li>)
+    const shows = this.state.shows.map(show => {
+      return (
+        <div className="userShow">
+          <div className="imgBox">
+            <img width="100%" src={show.img_url} alt="show poster" />
+          </div>
+          <h2>{show.title}</h2>
+        </div>
+      );
+    });
     return (
       <div>
         {this.props.user.username}

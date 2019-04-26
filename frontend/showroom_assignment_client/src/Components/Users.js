@@ -26,9 +26,10 @@ class Users extends Component {
   render () {
     const userList = this.state.users.map(user => <li>{user.username}</li>)
     return (
-      <ul>
+      <div>
+        <h2>{this.props.user.username}</h2>
         {userList}
-      </ul>
+      </div>
     );
   }
 }
