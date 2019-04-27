@@ -4,6 +4,7 @@
 @import "./stylesheets/user.css";
 @import "./stylesheets/lists.css";
 @import "./stylesheets/postShow.css";
+@import "./stylesheets/error.css";
 
 body {
   box-sizing: border-box;

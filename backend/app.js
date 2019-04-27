@@ -32,6 +32,7 @@ app.get('/api/v1/user/:id', (req, res) => {
 
 app.post('/api/v1/user', (req, res) => {
   const { username } = req.body;
+  console.log("*********************",req.body);
   return db.Users.create({ username })
     .then(user => res.send(user))
     .catch(err => {
