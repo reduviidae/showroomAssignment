@@ -7,7 +7,8 @@ import { API_ROOT, HEADERS } from "../constants";
 
 class PostUser extends Component {
   state = {
-    username: ""
+    username: "",
+    errorArray: []
   };
 
   usernameOnChange = e => {
@@ -16,28 +17,27 @@ class PostUser extends Component {
 
   submitUser = e => {
     e.preventDefault();
-      fetch(`${API_ROOT}user`, {
-        method: "POST",
-        headers: HEADERS,
-        body: JSON.stringify({
-          username: this.state.username
-        })
+    fetch(`${API_ROOT}user`, {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({
+        username: this.state.username
       })
-        .then(r => r.json())
-        .then(r => {
-          if (r.errors) {
-            r.errors.map(err => {
-              return (
-                <div className="errorMessage">
-                  {err.message}
-                </div>
-              )
-            })
-          }
-        });
+    })
+      .then(r => r.json())
+      .then(r => {
+        if (r.errors) {
+          r.errors.map(err => {
+            const errorArray = [];
+            errorArray.push(err.message);
+            this.setState({ errorArray });
+          });
+        }
+      });
   };
 
   render() {
+    const errors = this.state.errorArray.map(error => <div className="error">{error}</div>)
     return (
       <Form>
         <Form.Group>
@@ -53,9 +53,11 @@ class PostUser extends Component {
         <Button
           className="submitButton"
           type="submit"
-          onClick={this.submitUser}>
+          onClick={this.submitUser}
+        >
           Create new user
         </Button>
+        {errors}
       </Form>
     );
   }
