@@ -27,10 +27,10 @@ class Users extends Component {
 
   render() {
     const userList = this.state.users.map(user => (
-      <ListGroup.Item className="userList">{user.username}</ListGroup.Item>
+      <ListGroup.Item className="list">{user.username}</ListGroup.Item>
     ));
     return (
-      <div className="userContainer">
+      <div className="listContainer">
         <h3>Welcome to, {this.props.user.username}!</h3>
         <h3>Your user number is: {this.props.user.id}.</h3>
         <h3>Master List of All Users:</h3>

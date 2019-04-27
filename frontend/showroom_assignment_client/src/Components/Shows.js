@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import { API_ROOT, HEADERS } from '../constants';
-
+import ListGroup from "react-bootstrap/ListGroup";
 
 class Shows extends Component {
   state ={
@@ -24,11 +24,12 @@ class Shows extends Component {
   }
 
   render () {
-    const showList = this.state.shows.map(show => <li>{show.title}</li>)
+    const showList = this.state.shows.map(show => <ListGroup.Item className="list">{show.title}</ListGroup.Item>)
     return (
-      <ul>
+      <div className="listContainer">
+      <h3>Master List of All Shows:</h3>
         {showList}
-      </ul>
+      </div>
     );
   }
 }

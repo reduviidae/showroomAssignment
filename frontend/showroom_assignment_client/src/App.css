@@ -80,10 +80,6 @@ li {
   border: 1px #979797 solid;
 }
 
-.userContainer {
-  margin: 0% 5% 5% 5%;
-  padding: 5%;
-}
 
 .userShow {
   display: flex;
@@ -94,17 +90,22 @@ li {
   margin: 5%;
 }
 
-/* Users Page CSS */
+/* Lists CSS */
 
-.userList {
+.listContainer {
+  margin: 0% 5% 5% 5%;
+  padding: 5%;
+}
+
+.list {
   font-weight: bold;
   font-size: 1.25em;
   padding: 2px;
+  letter-spacing: 5px;
 }
 
-.userList:before {
+.list:before {
   content: "- ";
-  text-indent: 5px;
 }
 
 /* Show Creation Form CSS */

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
+import capitalize from "lodash/capitalize";
 
 // Import constants
 import { API_ROOT, HEADERS, USERID } from "../constants";
@@ -35,7 +35,7 @@ class User extends Component {
           </div>
           <div className="text">
             <h1 className="showText">{show.title}</h1>
-            <h2 className="showText">{show.Genre.genre_name}</h2>
+            <h2 className="showText">{capitalize(show.Genre.genre_name)}</h2>
           </div>
         </div>
       );

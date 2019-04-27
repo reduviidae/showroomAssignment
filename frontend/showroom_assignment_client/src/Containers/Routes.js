@@ -12,28 +12,30 @@ import PostShow from "../Components/PostShow";
 import Shows from "../Components/Shows";
 import Show from "../Components/Show";
 
-
 // Helpers to pass props through routes
 
 const renderMergedProps = (component, ...rest) => {
   const finalProps = Object.assign({}, ...rest);
-  return (
-    React.createElement(component, finalProps)
-  );
-}
+  return React.createElement(component, finalProps);
+};
 
 const PropsRoute = ({ component, ...rest }) => {
   return (
-    <Route {...rest} render={routeProps => {
-      return renderMergedProps(component, routeProps, rest);
-    }}/>
+    <Route
+      {...rest}
+      render={routeProps => {
+        return renderMergedProps(component, routeProps, rest);
+      }}
+    />
   );
-}
+};
 
 class Routes extends Component {
+
   state = {
     user: []
   };
+
   componentDidMount() {
     this.fetchUser();
   }
@@ -53,9 +55,13 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <PropsRoute path="/users" component={Users} user={this.state.user}/>
-        <Route path="/user/post" component={PostShow} />
-        <PropsRoute path="/user/:id" component={User} user={this.state.user}/>
+        <PropsRoute path="/users" component={Users} user={this.state.user} />
+        <PropsRoute
+          path="/user/post"
+          component={PostShow}
+          user={this.state.user}
+        />
+        <PropsRoute path="/user/:id" component={User} user={this.state.user} />
         <Route path="/shows" component={Shows} />
         <Route path="/show/:id" component={Show} />
         <Route path="/" component={Main} />
