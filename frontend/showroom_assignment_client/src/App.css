@@ -1,124 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import "./stylesheets/navbar.css";
+@import "./stylesheets/main.css";
+@import "./stylesheets/user.css";
+@import "./stylesheets/lists.css";
+@import "./stylesheets/postShow.css";
 
 body {
   box-sizing: border-box;
   color: #979797;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 3px;
-}
-
-/* NavBar CSS */
-
-.navBar {
-  background-color: #d8d8d8;
-  border: 1px #979797 solid;
-  margin: 10px;
-  padding: 10px;
-  height: 3em;
-  color: #979797;
-  font-size: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.25em;
-}
-
-#brand {
-  padding: 20px;
-  letter-spacing: 5px;
-}
-
-.navItem {
-  display: flex;
-  float: right;
-  text-align: justify;
-  padding: 5px;
-}
-
-.navItem > li {
-  display: inline-block;
-}
-
-a {
-  color: #979797;
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
-/* Home Page CSS */
-
-.container {
-  display: grid;
-  grid-template-rows: 6em 10em 5em;
-}
-
-.jumbotron {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  background-color: #d8d8d8;
-  height: 8em;
-  width: 40em;
-  text-align: center;
-  border: 1px #979797 solid;
-  border-radius: 10px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-
-/* User Page CSS */
-
-.imgBox {
-  height: 235px;
-  width: 196px;
-  background-color: #d8d8d8;
-  border: 1px #979797 solid;
-}
-
-
-.userShow {
-  display: flex;
-  margin: 5%;
-}
-
-.showText {
-  margin: 5%;
-}
-
-/* Lists CSS */
-
-.listContainer {
-  margin: 0% 5% 5% 5%;
-  padding: 5%;
-}
-
-.list {
-  font-weight: bold;
-  font-size: 1.25em;
-  padding: 2px;
-  letter-spacing: 5px;
-}
-
-.list:before {
-  content: "- ";
-}
-
-/* Show Creation Form CSS */
-
-.showForm {
-  height: 2.5em;
-  width: 20em;
-  margin: 10px;
-  border-radius: 10px;
-  border: 1px #979797 solid;
-  background-color: white;
-  color: #979797;
-  font-weight: bold;
-  font-size: 1.25em;
-  padding-left: 10px;
 }

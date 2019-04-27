@@ -1,0 +1,18 @@
+/* User Page CSS */
+
+.imgBox {
+  height: 235px;
+  width: 196px;
+  background-color: #d8d8d8;
+  border: 1px #979797 solid;
+}
+
+
+.userShow {
+  display: flex;
+  margin: 5%;
+}
+
+.showText {
+  margin: 5%;
+}

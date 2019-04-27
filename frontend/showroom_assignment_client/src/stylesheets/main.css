@@ -1,0 +1,21 @@
+/* Main Page CSS */
+
+.container {
+  display: grid;
+  grid-template-rows: 6em 10em 5em;
+}
+
+.jumbotron {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  background-color: #d8d8d8;
+  height: 8em;
+  width: 40em;
+  text-align: center;
+  border: 1px #979797 solid;
+  border-radius: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

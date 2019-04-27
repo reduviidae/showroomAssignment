@@ -1,0 +1,19 @@
+/* Show Creation Form CSS */
+
+.showForm, .submitButton {
+  height: 2.5em;
+  width: 20em;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px #979797 solid;
+  background-color: white;
+  color: #979797;
+  font-weight: bold;
+  font-size: 1.25em;
+  padding-left: 10px;
+}
+
+.submitButton {
+  background-color: #d8d8d8;
+  text-align: left;
+}
