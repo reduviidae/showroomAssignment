@@ -14,7 +14,7 @@ class User extends Component {
   }
 
   fetchShows = () => {
-    fetch(`${API_ROOT}user/${USERID}/shows`, {
+    fetch(`${API_ROOT}user/${this.props.match.params.id}/shows`, {
       method: "GET",
       headers: HEADERS
     })
@@ -26,7 +26,7 @@ class User extends Component {
   };
 
   render() {
-    console.log(this.state.shows);
+    console.log(this.props.match.params.id);
     const shows = this.state.shows.map(show => {
       return (
         <div className="userShow">
