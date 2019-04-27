@@ -106,3 +106,13 @@ li {
   content: "- ";
   text-indent: 5px;
 }
+
+/* Show Creation Form CSS */
+
+.showForm {
+  height: 4em;
+  width: 25em;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+}
