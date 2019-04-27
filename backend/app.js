@@ -31,7 +31,13 @@ app.get('/api/v1/user/:id', (req, res) => {
 });
 
 app.post('/api/v1/user', (req, res) => {
-  // CREATE NEW USER
+  const { username } = req.body;
+  return db.Users.create({ username })
+    .then(user => res.send(user))
+    .catch(err => {
+      console.log(`Error creating a new user: ${JSON.stringify(err)}`);
+      return res.send(err);
+    });
 });
 
 // Genres Route //
