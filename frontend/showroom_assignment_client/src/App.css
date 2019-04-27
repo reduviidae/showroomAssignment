@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 body {
   box-sizing: border-box;
   color: #979797;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 3px;
 }
 
 /* NavBar CSS */
@@ -17,15 +18,22 @@ body {
   color: #979797;
   font-size: 1.5em;
   display: flex;
-  align-content: center;
   align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+#brand {
+  padding: 20px;
+  letter-spacing: 5px;
 }
 
 .navItem {
   display: flex;
-  clear: both;
   float: right;
   text-align: justify;
+  padding: 5px;
 }
 
 .navItem > li {
@@ -82,21 +90,19 @@ li {
   margin: 5%;
 }
 
-.showTitle {
+.showText {
   margin: 5%;
-}
-
-.showGenre {
-  clear: left;
 }
 
 /* Users Page CSS */
 
 .userList {
   font-weight: bold;
+  font-size: 1.25em;
+  padding: 2px;
 }
 
 .userList:before {
-  content: "-";
+  content: "- ";
   text-indent: 5px;
 }

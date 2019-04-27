@@ -33,17 +33,14 @@ class User extends Component {
           <div className="imgBox">
             <img width="100%" src={show.img_url} alt="show poster" />
           </div>
-          <h2 className="showTitle">{show.title}</h2>
-          <h2 className="showGenre">{show.Genre.genre_name}</h2>
+          <div className="text">
+            <h1 className="showText">{show.title}</h1>
+            <h2 className="showText">{show.Genre.genre_name}</h2>
+          </div>
         </div>
       );
     });
-    return (
-      <div className="userContainer">
-        {this.props.user.username}
-        {shows}
-      </div>
-    );
+    return <div className="userContainer">{shows}</div>;
   }
 }
 

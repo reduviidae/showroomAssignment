@@ -32,6 +32,7 @@ class Users extends Component {
     return (
       <div className="userContainer">
         <h3>Welcome to, {this.props.user.username}!</h3>
+        <h3>Your user number is: {this.props.user.id}.</h3>
         <h3>Master List of All Users:</h3>
         <ListGroup>{userList}</ListGroup>
       </div>
