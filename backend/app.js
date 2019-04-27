@@ -112,7 +112,12 @@ app.get('/api/v1/show/:id', (req, res) => {
 });
 
 app.post('/api/v1/show', (req, res) => {
-  // CREATE NEW SHOW
+  const { title, img_url, genre_id, user_id } = req.body;
+  return db.Shows.create({ title, img_url, genre_id, user_id })
+    .then(show => res.send(show))
+    .catch(err => {
+      console.log(`There was an error creating a show for user #${user_id}: ${JSON.stringify(err)}`);
+    })
 });
 
 // Comments Routes //
