@@ -27,7 +27,9 @@ class Users extends Component {
 
   render() {
     const userList = this.state.users.map(user => (
-      <ListGroup.Item className="list">{user.username}</ListGroup.Item>
+      <ListGroup.Item onClick={this.redirect} className="list">
+        <a href={`/user/${user.id}`}>{user.username}</a>
+      </ListGroup.Item>
     ));
     return (
       <div className="listContainer">
