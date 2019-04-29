@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import capitalize from "lodash/capitalize";
 
 // Import constants
-import { API_ROOT, HEADERS, USERID } from "../constants";
+import { API_ROOT, HEADERS } from "../constants";
 
 class User extends Component {
   state = {
@@ -40,7 +40,13 @@ class User extends Component {
         </div>
       );
     });
-    return <div className="userContainer">{shows}</div>;
+    return (
+      <div className="userContainer">
+    {shows}
+    <br/>
+    {parseInt(this.props.match.params.id) === 10 && <a href="/user/post">Add a show</a>}
+    </div>
+  );
   }
 }
 

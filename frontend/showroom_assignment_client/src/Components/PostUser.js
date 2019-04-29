@@ -47,7 +47,7 @@ class PostUser extends Component {
           r.errors.map(err => {
             const errorArray = [];
             errorArray.push(err.message);
-            this.setState({ errorArray });
+            return this.setState({ errorArray });
           });
         } else {
           this.newUser(r)

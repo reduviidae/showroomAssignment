@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import capitalize from "lodash/capitalize";
+import Redirect from "react-router-dom/Redirect";
 
 // Import constants
 import { API_ROOT, HEADERS } from "../constants";
@@ -11,12 +12,25 @@ class PostShow extends Component {
     title: "",
     img_url: "",
     genre_id: 0,
-    genres: []
+    genres: [],
+    redirect: false,
+    newShow: 0,
+    errorArray: []
   };
 
   componentDidMount() {
     this.fetchGenres();
   }
+
+  redirect = r => {
+    this.setState({ redirect: true });
+  };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to={`/show/${this.state.newShow}`} />;
+    }
+  };
 
   fetchGenres = () => {
     fetch(`${API_ROOT}genres`, {
@@ -42,6 +56,10 @@ class PostShow extends Component {
     this.setState({ genre_id: parseInt(e.target.value) });
   };
 
+  newShow = r => {
+    this.setState({ newShow: r.id });
+  };
+
   submitShow = e => {
     e.preventDefault();
     fetch(`${API_ROOT}show`, {
@@ -55,7 +73,18 @@ class PostShow extends Component {
       })
     })
       .then(r => r.json())
-      .then(console.log);
+      .then(r => {
+        if (r.errors) {
+          r.errors.map(err => {
+            const errorArray = [];
+            errorArray.push(err.message);
+            return this.setState({ errorArray });
+          });
+        } else {
+          this.newShow(r);
+          this.redirect();
+        }
+      });
   };
 
   render() {
@@ -66,6 +95,7 @@ class PostShow extends Component {
     ));
     return (
       <Form>
+      {this.renderRedirect()}
         <Form.Group>
           <Form.Control
             className="showForm"
@@ -96,7 +126,8 @@ class PostShow extends Component {
         <Button
           className="submitButton"
           type="submit"
-          onClick={this.submitShow}>
+          onClick={this.submitShow}
+        >
           Post new show for user id: {this.props.user.id}
         </Button>
       </Form>

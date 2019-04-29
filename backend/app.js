@@ -9,6 +9,40 @@ app.use(express.static(__dirname + '/static'));
 
 app.get('/', (req, res) => res.send('HELLO WORLD'));
 
+// Comments Routes //
+app.get('/api/v1/show/:id/comments', (req, res) => {
+  const show_id = parseInt(req.params.id);
+  return db.Shows.findByPk(show_id)
+  .then(show => show.getComments())
+  .then(comments => res.send(comments))
+  .catch(err => {
+    console.log(`Error retrieving comments for show #${show_id}: ${JSON.stringify(err)}`);
+    return res.send(err);
+  })
+});
+
+app.get('/api/v1/user/:id/comments', (req, res) => {
+  const user_id = parseInt(req.params.id);
+  return db.Users.findByPk(user_id)
+  .then(user => user.getComments())
+  .then(comments => res.send(comments))
+  .catch(err => {
+    console.log(`Error retrieving comments for user #${user_id}: ${JSON.stringify(err)}`);
+    return res.send(err);
+  })
+});
+
+app.post('/api/v1/show/:id/comment', (req, res) => {
+  const show_id = parseInt(req.params.id);
+  const { user_id, comment_body } = req.body;
+  return db.Comments.create({ show_id, user_id, comment_body })
+  .then(comment => res.send(comment))
+  .catch(err => {
+    console.log(`Error creating new comment for user #${user_id} and show #${show_id}: ${JSON.stringify(err)}`);
+    return res.send(err);
+  })
+});
+
 // Users Routes //
 app.get('/api/v1/users', (req, res) => {
   return db.Users.findAll()
@@ -117,6 +151,7 @@ app.get('/api/v1/show/:id', (req, res) => {
 });
 
 app.post('/api/v1/show', (req, res) => {
+  console.log("#####################", req.body);
   const { title, img_url, genre_id, user_id } = req.body;
   return db.Shows.create({ title, img_url, genre_id, user_id })
     .then(show => res.send(show))
@@ -125,33 +160,6 @@ app.post('/api/v1/show', (req, res) => {
     })
 });
 
-// Comments Routes //
-app.get('/api/v1/show/:id/comments', (req, res) => {
-  const show_id = parseInt(req.params.id);
-  return db.Shows.findByPk(show_id)
-    .then(show => show.getComments())
-    .then(comments => res.send(comments))
-    .catch(err => {
-      console.log(`Error retrieving comments for show #${show_id}: ${JSON.stringify(err)}`);
-      return res.send(err);
-    })
-});
-
-app.get('/api/v1/user/:id/comments', (req, res) => {
-  const user_id = parseInt(req.params.id);
-  return db.Users.findByPk(user_id)
-    .then(user => user.getComments())
-    .then(comments => res.send(comments))
-    .catch(err => {
-      console.log(`Error retrieving comments for user #${user_id}: ${JSON.stringify(err)}`);
-      return res.send(err);
-    })
-});
-
-app.post('/api/v1/show/:id/comment', (req, res) => {
-  const show_id = parseInt(req.params.id);
-  // CREATE NEW COMMENT
-});
 
 const PORT = process.env.PORT || 5000;
 
