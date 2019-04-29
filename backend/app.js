@@ -191,7 +191,11 @@ app.get("/api/v1/show/:id", (req, res) => {
     include: [
       {
         model: db.Comments,
-        as: "Comments"
+        as: "Comments",
+        include: [{
+          model: db.Users,
+          as: "User"
+        }]
       },
       {
         model: db.Genres,

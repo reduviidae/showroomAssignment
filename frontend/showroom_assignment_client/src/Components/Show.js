@@ -52,7 +52,8 @@ class Show extends Component {
       this.state.show.Comments.map(comment => {
         return (
           <ListGroup.Item className="comment">
-            {comment.comment_body}
+            {comment.comment_body} <br/>
+            posted by: {comment.User && comment.User.username}
           </ListGroup.Item>
         );
       });
