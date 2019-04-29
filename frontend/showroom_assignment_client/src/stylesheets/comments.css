@@ -1,9 +1,21 @@
 .commentForm {
-grid-row-start: 3;
+  margin: 5%;
 }
 
 .commentBody {
-  z-index: 200;
+  height: 5em;
+  width: 32em;
+}
+
+.commentButton {
+  background-color: #d8d8d8;
+  text-align: left;
+  border-radius: 5px;
+  border: 1px #979797 solid;
+  color: #979797;
+  font-weight: bold;
+  padding-left: 10px;
+  text-align: left;
 }
 
 .comment {

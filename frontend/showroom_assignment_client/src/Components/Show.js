@@ -75,7 +75,7 @@ class Show extends Component {
               onChange={this.commentOnChange}
             />
             <br/>
-            <Button>Submit</Button>
+            <Button className="commentButton">Submit</Button>
           </Form.Group>
         </Form>
       </Container>
