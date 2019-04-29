@@ -9,11 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       comment_body: {
-        allowNull: false,
         type: Sequelize.STRING,
-        min: {
-          args: [3],
-          msg: "Minimum 3 characters required in comment body."
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Comment cannot be empty"
+          },
+          len: {
+            args: [3,500],
+            msg: "Commment length is not within range"
+          }
         }
       },
       user_id: {

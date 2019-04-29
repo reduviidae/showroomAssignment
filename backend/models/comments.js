@@ -10,10 +10,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       comment_body: {
         type: DataTypes.STRING,
-        allowNull: false,
-        min: {
-          args: [3],
-          msg: "Minimum 3 characters required in comment body."
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Comment cannot be empty"
+          },
+          len: {
+            args: [3,500],
+            msg: "Commment length is not within range"
+          }
         }
       },
       user_id: {
