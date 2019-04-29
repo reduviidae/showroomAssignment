@@ -11,8 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: DataTypes.STRING,
       img_url: DataTypes.STRING,
-      user_id: DataTypes.INTEGER,
-      genre_id: DataTypes.INTEGER
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      genre_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     },
     {}
   );

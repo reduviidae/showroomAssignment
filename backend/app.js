@@ -42,7 +42,6 @@ app.get("/api/v1/user/:id/comments", (req, res) => {
 });
 
 app.post("/api/v1/comment", (req, res) => {
-  console.log(`Hit commpent post route with ${req.body}`);
   const { user_id, show_id, comment_body } = req.body;
   return db.Comments.create({ show_id, user_id, comment_body })
     .then(comment => res.send(comment))

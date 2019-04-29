@@ -9,12 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       comment_body: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       user_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       show_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {

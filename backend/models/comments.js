@@ -8,9 +8,18 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true
       },
-      comment_body: DataTypes.STRING,
-      user_id: DataTypes.INTEGER,
-      show_id: DataTypes.INTEGER
+      comment_body: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      show_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     },
     {}
   );
