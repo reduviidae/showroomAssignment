@@ -24,7 +24,9 @@ class Shows extends Component {
   }
 
   render () {
-    const showList = this.state.shows.map(show => <ListGroup.Item className="list">{show.title}</ListGroup.Item>)
+    const showList = this.state.shows.map(show => <ListGroup.Item className="list">
+    <a href={`/show/${show.id}`}>{show.title}</a>
+    </ListGroup.Item>)
     return (
       <div className="listContainer">
       <h3>Master List of All Shows:</h3>

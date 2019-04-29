@@ -34,7 +34,7 @@ class User extends Component {
             <img width="100%" src={show.img_url} alt="show poster" />
           </div>
           <div className="text">
-            <h1 className="showText">{show.title}</h1>
+            <h1 className="showText"><a href={`/show/${show.id}`}>{show.title}</a></h1>
             <h2 className="showText">{capitalize(show.Genre.genre_name)}</h2>
           </div>
         </div>
