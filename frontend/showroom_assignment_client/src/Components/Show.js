@@ -87,8 +87,23 @@ class Show extends Component {
               </h2>
             </div>
             <div className="showUser">
-              Beings watched by: {this.state.show.User.username}
+              Being watched by: {this.state.show.User.username}
             </div>
+            <Form className="commentForm">
+              <Form.Group>
+                <Form.Control
+                  className="commentBody"
+                  type="text"
+                  placeholder="Insert new comment ..."
+                  onChange={this.commentOnChange}
+                  value={this.state.newComment}
+                />
+                <br />
+                <Button className="commentButton" onClick={this.submitComment}>
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form>
             <h3 id="commentsHeader">Comments:</h3>
             <ListGroup className="comments">{comments}</ListGroup>
           </div>
@@ -100,22 +115,6 @@ class Show extends Component {
     return (
       <Container className="showContainer">
         {show()}
-        <br />
-        <Form className="commentForm">
-          <Form.Group>
-            <Form.Control
-              className="commentBody"
-              type="text"
-              placeholder="Enter your comment ..."
-              onChange={this.commentOnChange}
-              value={this.state.newComment}
-            />
-            <br />
-            <Button className="commentButton" onClick={this.submitComment}>
-              Submit
-            </Button>
-          </Form.Group>
-        </Form>
       </Container>
     );
   }

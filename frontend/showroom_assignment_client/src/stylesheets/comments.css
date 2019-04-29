@@ -1,10 +1,15 @@
-.commentForm {
+.commentForm,
+.comment,
+#commentsHeader {
   margin: 5%;
 }
 
 .commentBody {
-  height: 5em;
-  width: 32em;
+  width: 20em;
+  border-radius: 5px;
+  font-size: 1.5em;
+  background-color: white;
+  color: #979797;
 }
 
 .commentButton {
@@ -16,10 +21,6 @@
   font-weight: bold;
   padding-left: 10px;
   text-align: left;
-}
-
-.comment, #commentsHeader {
-  margin: 5%;
 }
 
 .commentStats {
