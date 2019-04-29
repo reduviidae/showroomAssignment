@@ -5,11 +5,21 @@
 }
 
 .commentBody {
-  width: 20em;
+  height: 2em;
+  width: 12em;
   border-radius: 5px;
+  border: 1px #979797 solid;
   font-size: 1.5em;
   background-color: white;
   color: #979797;
+  text-align: center;
+}
+
+.comment {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 2px;
+  letter-spacing: 5px;
 }
 
 .commentButton {
@@ -21,6 +31,10 @@
   font-weight: bold;
   padding-left: 10px;
   text-align: left;
+  height: 4em;
+  width: 5em;
+  vertical-align: bottom;
+  margin: 5px;
 }
 
 .commentStats {

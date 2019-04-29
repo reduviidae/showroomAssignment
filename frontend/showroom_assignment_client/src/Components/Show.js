@@ -55,16 +55,7 @@ class Show extends Component {
       this.state.show.Comments.map(comment => {
         return (
           <ListGroup.Item className="comment">
-            {comment.comment_body} <br />
-            <p className="commentStats">
-              posted by: {comment.User.username} <br />
-              on:&nbsp;
-              {new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "2-digit"
-              }).format(new Date(comment.createdAt))}
-            </p>
+            {comment.User.username}: {comment.comment_body}
           </ListGroup.Item>
         );
       });
@@ -97,11 +88,8 @@ class Show extends Component {
                   placeholder="Insert new comment ..."
                   onChange={this.commentOnChange}
                   value={this.state.newComment}
-                />
-                <br />
-                <Button className="commentButton" onClick={this.submitComment}>
-                  Submit
-                </Button>
+                />&nbsp;&nbsp;&nbsp;
+                <Button className="commentButton" onClick={this.submitComment} />
               </Form.Group>
             </Form>
             <h3 id="commentsHeader">Comments:</h3>
