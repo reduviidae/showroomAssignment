@@ -92,7 +92,7 @@ class Show extends Component {
                 <Button className="commentButton" onClick={this.submitComment} />
               </Form.Group>
             </Form>
-            <h3 id="commentsHeader">Comments:</h3>
+            <h3 id="commentsHeader">{this.state.show.Comments.length}&nbsp;Comments:</h3>
             <ListGroup className="comments">{comments}</ListGroup>
           </div>
         );
