@@ -1,6 +1,6 @@
 /* Main Page CSS */
 
-.container {
+.mainContainer {
   display: grid;
   grid-template-rows: 6em 10em 5em;
 }

@@ -1,0 +1,11 @@
+.commentForm {
+grid-row-start: 3;
+}
+
+.commentBody {
+  z-index: 200;
+}
+
+.comment {
+  margin: 5%;
+}

@@ -5,6 +5,8 @@
 @import "./stylesheets/lists.css";
 @import "./stylesheets/postShow.css";
 @import "./stylesheets/error.css";
+@import "./stylesheets/show.css";
+@import "./stylesheets/comments.css";
 
 body {
   box-sizing: border-box;

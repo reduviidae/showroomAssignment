@@ -4,7 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 
 function Main() {
   return (
-    <div className="container">
+    <div className="mainContainer">
       <Jumbotron>
         <h2>Welcome to the TV Show Watchlist App!</h2>
       </Jumbotron>

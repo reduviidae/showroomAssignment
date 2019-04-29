@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import capitalize from "lodash/capitalize";
+import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 // Import constants
 import { API_ROOT, HEADERS } from "../constants";
@@ -25,18 +28,20 @@ class Show extends Component {
   };
 
   render() {
-    const comments = this.state.show.Comments && this.state.show.Comments.map(comment => {
-      return (
-        <ListGroup.Item className="comment">
-          {comment.comment_body}
-        </ListGroup.Item>
-      );
-    });
-    
+    const comments =
+      this.state.show.Comments &&
+      this.state.show.Comments.map(comment => {
+        return (
+          <ListGroup.Item className="comment">
+            {comment.comment_body}
+          </ListGroup.Item>
+        );
+      });
+
     const show = () => {
       if (this.state.show.Genre) {
         return (
-          <div className="showContainer">
+          <div className="showDisplay">
             <div className="imgBox">
               <img
                 width="100%"
@@ -57,7 +62,24 @@ class Show extends Component {
         return <div className="error">Unable to display show.</div>;
       }
     };
-    return <div>{show()}</div>;
+    return (
+      <Container className="showContainer">
+        {show()}
+        <br/>
+        <Form className="commentForm">
+          <Form.Group>
+            <Form.Control
+              className="commentBody"
+              type="text"
+              placeholder="Enter your comment ..."
+              onChange={this.commentOnChange}
+            />
+            <br/>
+            <Button>Submit</Button>
+          </Form.Group>
+        </Form>
+      </Container>
+    );
   }
 }
 
