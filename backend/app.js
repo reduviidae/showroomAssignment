@@ -18,7 +18,16 @@ app.get("/", (req, res) => res.send("HELLO WORLD"));
 app.get("/api/v1/show/:id/comments", (req, res) => {
   const show_id = parseInt(req.params.id);
   return db.Shows.findByPk(show_id)
-    .then(show => show.getComments())
+    .then(show =>
+      show.getComments({
+        include: [
+          {
+            model: db.Users,
+            as: "User"
+          }
+        ]
+      })
+    )
     .then(comments => res.send(comments))
     .catch(err => {
       console.log(
@@ -31,7 +40,14 @@ app.get("/api/v1/show/:id/comments", (req, res) => {
 app.get("/api/v1/user/:id/comments", (req, res) => {
   const user_id = parseInt(req.params.id);
   return db.Users.findByPk(user_id)
-    .then(user => user.getComments())
+    .then(user => user.getComments({
+      include: [
+        {
+          model: db.Shows,
+          as: "Show"
+        }
+      ]
+    }))
     .then(comments => res.send(comments))
     .catch(err => {
       console.log(

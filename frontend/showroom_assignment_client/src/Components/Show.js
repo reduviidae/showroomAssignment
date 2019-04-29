@@ -74,6 +74,7 @@ class Show extends Component {
                 {capitalize(this.state.show.Genre.genre_name)}
               </h2>
             </div>
+            <h3 id="commentsHeader">Comments:</h3>
             <ListGroup className="comments">{comments}</ListGroup>
           </div>
         );
