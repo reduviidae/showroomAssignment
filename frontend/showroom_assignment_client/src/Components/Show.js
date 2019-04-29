@@ -43,9 +43,9 @@ class Show extends Component {
       })
     })
       .then(r => r.json())
-      .then(()=> {
+      .then(() => {
         this.fetchShow();
-        this.setState({ newComment: "" })
+        this.setState({ newComment: "" });
       });
   };
 
@@ -85,6 +85,9 @@ class Show extends Component {
               <h2 className="showText">
                 {capitalize(this.state.show.Genre.genre_name)}
               </h2>
+            </div>
+            <div className="showUser">
+              Beings watched by: {this.state.show.User.username}
             </div>
             <h3 id="commentsHeader">Comments:</h3>
             <ListGroup className="comments">{comments}</ListGroup>
