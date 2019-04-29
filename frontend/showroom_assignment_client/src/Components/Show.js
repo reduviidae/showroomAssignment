@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from "react";
 
+// Import constants
+import { API_ROOT, HEADERS } from "../constants";
 
-function Show() {
-  return (
-    <div>
-      Show one show
-    </div>
-  );
+class Show extends Component {
+  state = {
+      show:{}
+  }
+
+  componentDidMount () {
+    this.fetchShow();
+  }
+
+  render() {
+    return <div>Show one show</div>;
+  }
 }
 
 export default Show;

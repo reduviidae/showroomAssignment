@@ -142,7 +142,18 @@ app.get('/api/v1/user/:id/shows', (req, res) => {
 
 app.get('/api/v1/show/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  return db.Shows.findByPk(id)
+  return db.Shows.findOne({
+    where: {
+      '$Shows.id$': id
+    },
+    include: [{
+      model: db.Comments,
+      as: 'Comments'
+    },{
+      model: db.Genres,
+      as: 'Genre'
+    }]
+  })
     .then(show => res.send(show))
     .catch(err => {
       console.log(`Error retrieving show #${id}: ${JSON.stringify(err)}`);
@@ -151,7 +162,6 @@ app.get('/api/v1/show/:id', (req, res) => {
 });
 
 app.post('/api/v1/show', (req, res) => {
-  console.log("#####################", req.body);
   const { title, img_url, genre_id, user_id } = req.body;
   return db.Shows.create({ title, img_url, genre_id, user_id })
     .then(show => res.send(show))
