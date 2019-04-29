@@ -1,4 +1,10 @@
 const db = require('./models');
 
-db.Users.findByPk(23)
-  .then(user => user.destroy())
+// db.Shows.findByPk(52)
+//   .then(show => show.destroy())
+
+db.Shows.findOne({
+  where: {
+    "$Shows.title$": "Good Dog"
+  }})
+  .then(console.log)

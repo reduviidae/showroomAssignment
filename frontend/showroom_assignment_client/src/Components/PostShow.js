@@ -102,6 +102,7 @@ class PostShow extends Component {
             type="text"
             placeholder="Title Text Input"
             onChange={this.titleOnChange}
+            value={this.state.title}
           />
           <br />
           <Form.Control
@@ -109,6 +110,7 @@ class PostShow extends Component {
             type="text"
             placeholder="Image URL Text Input"
             onChange={this.imgUrlOnChange}
+            value={this.state.img_url}
           />
           <br />
           <Form.Control

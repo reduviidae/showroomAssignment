@@ -43,7 +43,10 @@ class Show extends Component {
       })
     })
       .then(r => r.json())
-      .then(this.setState({ newComment: "" }));
+      .then(()=> {
+        this.fetchShow();
+        this.setState({ newComment: "" })
+      });
   };
 
   render() {
@@ -102,6 +105,7 @@ class Show extends Component {
               type="text"
               placeholder="Enter your comment ..."
               onChange={this.commentOnChange}
+              value={this.state.newComment}
             />
             <br />
             <Button className="commentButton" onClick={this.submitComment}>
