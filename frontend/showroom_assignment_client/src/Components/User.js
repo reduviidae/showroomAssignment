@@ -27,7 +27,7 @@ class User extends Component {
 
   render() {
     console.log(this.props.match.params.id);
-    const shows = this.state.shows.map(show => {
+    const shows = this.state.shows[0] && this.state.shows.map(show => {
       return (
         <div className="userShow">
           <div className="imgBox">

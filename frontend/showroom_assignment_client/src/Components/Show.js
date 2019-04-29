@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import capitalize from "lodash/capitalize";
+import ListGroup from "react-bootstrap/ListGroup";
 
 // Import constants
 import { API_ROOT, HEADERS } from "../constants";
@@ -19,10 +20,19 @@ class Show extends Component {
       headers: HEADERS
     })
       .then(r => r.json())
-      .then(show => this.setState({ show }));
+      .then(show => this.setState({ show }))
+      .catch(console.log);
   };
 
   render() {
+    const comments = this.state.show.Comments && this.state.show.Comments.map(comment => {
+      return (
+        <ListGroup.Item className="comment">
+          {comment.comment_body}
+        </ListGroup.Item>
+      );
+    });
+    
     const show = () => {
       if (this.state.show.Genre) {
         return (
@@ -40,21 +50,14 @@ class Show extends Component {
                 {capitalize(this.state.show.Genre.genre_name)}
               </h2>
             </div>
+            <ListGroup className="comments">{comments}</ListGroup>
           </div>
         );
       } else {
-        return (
-          <div>
-          "Error displaying show."
-          </div>
-        );
+        return <div className="error">Unable to display show.</div>;
       }
     };
-    return (
-      <div>
-      {show()}
-      </div>
-    );
+    return <div>{show()}</div>;
   }
 }
 
