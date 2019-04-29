@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       username: {
         type: DataTypes.STRING,
         unique: true,
-        allowNull: false
+        allowNull: false,
+        min:{
+        args:[5],
+        msg:"Minimum 5 characters required in username."
+   }
       }
     },
     {}

@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Comments', {
+    return queryInterface.createTable("Comments", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,7 +10,11 @@ module.exports = {
       },
       comment_body: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        min: {
+          args: [3],
+          msg: "Minimum 3 characters required in comment body."
+        }
       },
       user_id: {
         allowNull: false,
@@ -31,6 +35,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Comments');
+    return queryInterface.dropTable("Comments");
   }
 };

@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,7 +11,11 @@ module.exports = {
       username: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique: true
+        unique: true,
+        min: {
+          args: [5],
+          msg: "Minimum 5 characters required in username"
+        }
       },
       createdAt: {
         allowNull: false,
@@ -24,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable("Users");
   }
 };

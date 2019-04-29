@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       comment_body: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        min: {
+          args: [3],
+          msg: "Minimum 3 characters required in comment body."
+        }
       },
       user_id: {
         type: DataTypes.INTEGER,
