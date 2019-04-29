@@ -29,8 +29,8 @@ class Show extends Component {
   };
 
   commentOnChange = e => {
-    this.setState({ newComment: e.target.value })
-  }
+    this.setState({ newComment: e.target.value });
+  };
 
   submitComment = () => {
     fetch(`${API_ROOT}comment`, {
@@ -42,9 +42,9 @@ class Show extends Component {
         comment_body: this.state.newComment
       })
     })
-    .then(r => r.json())
-    .then(this.setState({ newComment: "" }))
-  }
+      .then(r => r.json())
+      .then(this.setState({ newComment: "" }));
+  };
 
   render() {
     const comments =
@@ -52,8 +52,16 @@ class Show extends Component {
       this.state.show.Comments.map(comment => {
         return (
           <ListGroup.Item className="comment">
-            {comment.comment_body} <br/>
-            posted by: {comment.User && comment.User.username}
+            {comment.comment_body} <br />
+            <p className="commentStats">
+              posted by: {comment.User.username} <br />
+              on:&nbsp;
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit"
+              }).format(new Date(comment.createdAt))}
+            </p>
           </ListGroup.Item>
         );
       });
@@ -86,7 +94,7 @@ class Show extends Component {
     return (
       <Container className="showContainer">
         {show()}
-        <br/>
+        <br />
         <Form className="commentForm">
           <Form.Group>
             <Form.Control
@@ -95,11 +103,10 @@ class Show extends Component {
               placeholder="Enter your comment ..."
               onChange={this.commentOnChange}
             />
-            <br/>
-            <Button
-            className="commentButton"
-            onClick={this.submitComment}
-            >Submit</Button>
+            <br />
+            <Button className="commentButton" onClick={this.submitComment}>
+              Submit
+            </Button>
           </Form.Group>
         </Form>
       </Container>
