@@ -1,6 +1,6 @@
 # showroomAssignment
 
-To test the app, you will only need to download the directory frontend/showroom_assignment_client. From within that directory run ```yarn``` then ```yarn start```.
+To test the app, you will only need to download the directory frontend/showroom_assignment_client. From within that directory run ```yarn``` then ```yarn run start```.
 
 For the sake of simplicity, the backend has been deployed to Heroku, and so nothing needs to be done. 
 

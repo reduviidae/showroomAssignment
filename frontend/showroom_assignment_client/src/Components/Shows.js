@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { API_ROOT, HEADERS } from '../constants';
 import ListGroup from "react-bootstrap/ListGroup";
+import uniqBy from "lodash/uniqBy";
 
 class Shows extends Component {
   state ={
@@ -23,7 +24,8 @@ class Shows extends Component {
   }
 
   render () {
-    const showList = this.state.shows.map(show => <ListGroup.Item className="list">
+    const uniqueShows = uniqBy(this.state.shows, show => show.title)
+    const showList = uniqueShows.map(show => <ListGroup.Item className="list">
     <a href={`/show/${show.id}`}>{show.title}</a>
     </ListGroup.Item>)
     return (
