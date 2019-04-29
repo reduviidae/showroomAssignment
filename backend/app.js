@@ -200,6 +200,10 @@ app.get("/api/v1/show/:id", (req, res) => {
       {
         model: db.Genres,
         as: "Genre"
+      },
+      {
+        model: db.Users,
+        as: "User"
       }
     ]
   })
