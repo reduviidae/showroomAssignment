@@ -6,7 +6,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let seedData = [];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 100; i++) {
       const fakeData = {
         comment_body: faker.company.bs(),
         user_id: Math.floor(Math.random() * 10) + 1,

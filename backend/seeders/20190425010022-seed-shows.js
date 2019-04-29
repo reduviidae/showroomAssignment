@@ -6,7 +6,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let seedData = [];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 50; i++) {
       const fakeData = {
         title: faker.company.catchPhrase(),
         img_url: faker.image.imageUrl(),
