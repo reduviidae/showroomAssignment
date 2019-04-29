@@ -17,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Shows.associate = function(models) {
-    Shows.belongsTo(models.Users, {as: 'User', foreignKey: 'user_id'});
-    Shows.belongsTo(models.Genres, {as: 'Genre', foreignKey: 'genre_id'});
-    Shows.hasMany(models.Comments, {as: 'Comments', foreignKey: 'show_id'});
+    Shows.belongsTo(models.Users, { as: "User", foreignKey: "user_id" });
+    Shows.belongsTo(models.Genres, { as: "Genre", foreignKey: "genre_id" });
+    Shows.hasMany(models.Comments, { as: "Comments", foreignKey: "show_id" });
   };
   return Shows;
 };

@@ -43,7 +43,7 @@ class Show extends Component {
       })
     })
     .then(r => r.json())
-    .then(window.location.reload())
+    .then(this.setState({ newComment: "" }))
   }
 
   render() {
