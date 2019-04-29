@@ -12,6 +12,7 @@ import PostShow from "../Components/PostShow";
 import Shows from "../Components/Shows";
 import Show from "../Components/Show";
 import PostUser from "../Components/PostUser";
+import Genres from "../Components/Genres";
 
 // Helpers to pass props through routes
 
@@ -57,6 +58,7 @@ class Routes extends Component {
       <Switch>
         <Route path="/signup" component={PostUser} />
         <PropsRoute path="/users" component={Users} user={this.state.user} />
+        <Route path="/genres" component={Genres}/>
         <PropsRoute
           path="/user/post"
           component={PostShow}

@@ -1,4 +1,4 @@
-export const API_ROOT = "http://localhost:5000/api/v1/";
+export const API_ROOT = "https://wjc-showroom-backend.herokuapp.com/api/v1/";
 
 export const HEADERS = {
     'Content-Type': 'application/json',

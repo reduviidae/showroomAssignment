@@ -6,36 +6,34 @@ import { API_ROOT, HEADERS } from "../constants";
 
 class Users extends Component {
   state = {
-    users: []
+    genres: []
   };
   componentDidMount() {
-    this.fetchUsers();
+    this.fetchGenres();
   }
 
-  fetchUsers = () => {
-    fetch(`${API_ROOT}users`, {
+  fetchGenres = () => {
+    fetch(`${API_ROOT}genres`, {
       method: "GET",
       headers: HEADERS
     })
       .then(r => r.json())
-      .then(users => this.setState({ users }))
+      .then(genres => this.setState({ genres }))
       .catch(err => {
         console.log(`Error retrieving users: ${JSON.stringify(err)}`);
       });
   };
 
   render() {
-    const userList = this.state.users.map(user => (
+    const genreList = this.state.genres.map(genre => (
       <ListGroup.Item onClick={this.redirect} className="list">
-        <a href={`/user/${user.id}`}>{user.username}</a>
+        {genre.genre_name}
       </ListGroup.Item>
     ));
     return (
       <div className="listContainer">
-        <h3>Welcome to, {this.props.user.username}!</h3>
-        <h3>Your user number is: {this.props.user.id}.</h3>
-        <h3>Master List of All Users:</h3>
-        <ListGroup>{userList}</ListGroup>
+        <h3>Master List of All Genres:</h3>
+        <ListGroup>{genreList}</ListGroup>
       </div>
     );
   }

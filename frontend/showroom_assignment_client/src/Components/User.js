@@ -44,7 +44,7 @@ class User extends Component {
       <div className="userContainer">
     {shows}
     <br/>
-    {parseInt(this.props.match.params.id) === 10 && <a href="/user/post">Add a show</a>}
+    {parseInt(this.props.match.params.id) === 10 && <a className="addShowLink" href="/user/post">Add a show</a>}
     </div>
   );
   }

@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-
 .userShow {
   display: flex;
   margin: 5%;
@@ -16,4 +15,11 @@
 
 .showText {
   margin: 5%;
+}
+
+.addShowLink {
+  background-color: #d8d8d8;
+  border: 1px #979797 solid;
+  margin-left: 10%;
+  padding: 5px;
 }

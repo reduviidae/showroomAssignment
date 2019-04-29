@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
 import { API_ROOT, HEADERS } from '../constants';
 import ListGroup from "react-bootstrap/ListGroup";
 
