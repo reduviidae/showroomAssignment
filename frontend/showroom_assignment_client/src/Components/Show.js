@@ -6,11 +6,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 // Import constants
-import { API_ROOT, HEADERS } from "../constants";
+import { API_ROOT, HEADERS, USERID } from "../constants";
 
 class Show extends Component {
   state = {
-    show: {}
+    show: {},
+    newComment: ""
   };
 
   componentDidMount() {
@@ -26,6 +27,24 @@ class Show extends Component {
       .then(show => this.setState({ show }))
       .catch(console.log);
   };
+
+  commentOnChange = e => {
+    this.setState({ newComment: e.target.value })
+  }
+
+  submitComment = () => {
+    fetch(`${API_ROOT}comment`, {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({
+        user_id: USERID,
+        show_id: this.state.show.id,
+        comment_body: this.state.newComment
+      })
+    })
+    .then(r => r.json())
+    .then(window.location.reload())
+  }
 
   render() {
     const comments =
@@ -75,7 +94,10 @@ class Show extends Component {
               onChange={this.commentOnChange}
             />
             <br/>
-            <Button className="commentButton">Submit</Button>
+            <Button
+            className="commentButton"
+            onClick={this.submitComment}
+            >Submit</Button>
           </Form.Group>
         </Form>
       </Container>

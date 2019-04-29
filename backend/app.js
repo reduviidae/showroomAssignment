@@ -32,9 +32,8 @@ app.get('/api/v1/user/:id/comments', (req, res) => {
   })
 });
 
-app.post('/api/v1/show/:id/comment', (req, res) => {
-  const show_id = parseInt(req.params.id);
-  const { user_id, comment_body } = req.body;
+app.post('/api/v1/comment', (req, res) => {
+  const { user_id, show_id, comment_body } = req.body;
   return db.Comments.create({ show_id, user_id, comment_body })
   .then(comment => res.send(comment))
   .catch(err => {
